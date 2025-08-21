@@ -1,0 +1,25 @@
+# Nome que aparece na aba "Actions" do seu repositório
+name: Meu Primeiro Action
+
+# O evento que irá disparar este workflow
+on:
+  push:
+    branches:
+      - main # Dispara quando há um push para o branch 'main'
+
+# Definição dos jobs
+jobs:
+  # O nome do nosso job: 'olamundo'
+  olamundo:
+    # O ambiente onde o job será executado. 'ubuntu-latest' é uma máquina virtual com Ubuntu
+    runs-on: ubuntu-latest
+
+    # As etapas (steps) do nosso job
+    steps:
+      # A primeira etapa é sempre fazer o checkout do seu código
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      # A segunda etapa executa um comando de shell
+      - name: Dizer Olá
+        run: echo "Olá, GitHub Actions!"
